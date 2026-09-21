@@ -1,0 +1,70 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const roles = [
+	{
+		title: "Designer",
+		company: "Placeholder Company",
+		period: "20XX — 20XX",
+		bullets: [
+			"Placeholder bullet point about design responsibilities.",
+			"Placeholder bullet point about a project or outcome.",
+			"Placeholder bullet point about tools or collaboration.",
+		],
+	},
+	{
+		title: "Developer",
+		company: "Placeholder Company",
+		period: "20XX — 20XX",
+		bullets: [
+			"Placeholder bullet point about development responsibilities.",
+			"Placeholder bullet point about a project or outcome.",
+			"Placeholder bullet point about tools or collaboration.",
+		],
+	},
+	{
+		title: "Pharmacy Assistant",
+		company: "Placeholder Company",
+		period: "20XX — 20XX",
+		bullets: [
+			"Placeholder bullet point about pharmacy responsibilities.",
+			"Placeholder bullet point about customer service.",
+			"Placeholder bullet point about teamwork or achievements.",
+		],
+	},
+];
+---
+
+<Layout title="Anna Ruikka | Work Experience">
+	<div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+		<div>
+			<h1 class="text-3xl font-semibold tracking-tight text-slate-900">Work Experience</h1>
+			<p class="mt-2 text-slate-600">A placeholder list of past roles.</p>
+		</div>
+		<button
+			type="button"
+			disabled
+			aria-disabled="true"
+			class="mt-4 inline-flex shrink-0 cursor-not-allowed items-center justify-center rounded-md border border-slate-300 bg-slate-100 px-4 py-2 text-sm font-medium text-slate-400 sm:mt-0"
+		>
+			Download Resume (coming soon)
+		</button>
+	</div>
+
+	<ol class="mt-10 flex flex-col gap-10">
+		{roles.map((role) => (
+			<li class="border-l-2 border-slate-200 pl-6">
+				<div class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+					<h2 class="text-lg font-medium text-slate-900">{role.title}</h2>
+					<span class="text-sm text-slate-500">{role.period}</span>
+				</div>
+				<p class="text-sm text-slate-500">{role.company}</p>
+				<ul class="mt-3 list-disc space-y-1 pl-5 text-slate-600">
+					{role.bullets.map((bullet) => (
+						<li>{bullet}</li>
+					))}
+				</ul>
+			</li>
+		))}
+	</ol>
+</Layout>
