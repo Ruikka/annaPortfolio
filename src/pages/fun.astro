@@ -1,0 +1,39 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const gallery = [
+	{ src: "/fun/hobby-1.svg", caption: "Hobby placeholder — caption to follow." },
+	{ src: "/fun/hobby-2.svg", caption: "Hobby placeholder — caption to follow." },
+	{ src: "/fun/hobby-3.svg", caption: "Volunteer work placeholder — caption to follow." },
+	{ src: "/fun/hobby-4.svg", caption: "Hobby placeholder — caption to follow." },
+	{ src: "/fun/hobby-5.svg", caption: "Volunteer work placeholder — caption to follow." },
+	{ src: "/fun/hobby-6.svg", caption: "Hobby placeholder — caption to follow." },
+];
+---
+
+<Layout title="Anna Ruikka | Fun">
+	<h1 class="text-3xl font-semibold tracking-tight text-slate-900">Fun</h1>
+	<p class="mt-2 text-slate-600">
+		A placeholder gallery of hobbies and volunteer work — real photos and captions to follow.
+	</p>
+
+	<div class="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3">
+		{gallery.map((photo) => (
+			<figure class="flex flex-col gap-2">
+				<a href={photo.src} data-fslightbox="gallery" class="block overflow-hidden rounded-lg">
+					<img
+						src={photo.src}
+						alt={photo.caption}
+						class="aspect-square w-full object-cover transition-transform hover:scale-105"
+						loading="lazy"
+					/>
+				</a>
+				<figcaption class="text-sm text-slate-500">{photo.caption}</figcaption>
+			</figure>
+		))}
+	</div>
+
+	<script>
+		import "fslightbox";
+	</script>
+</Layout>

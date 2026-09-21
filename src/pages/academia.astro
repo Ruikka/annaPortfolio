@@ -1,0 +1,40 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const degrees = [
+	{ title: "Master's Degree" },
+	{ title: "Bachelor's Degree" },
+	{ title: "Master's Thesis" },
+	{ title: "Study Certificates" },
+];
+
+const lorem =
+	"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
+---
+
+<Layout title="Anna Ruikka | Academia">
+	<h1 class="text-3xl font-semibold tracking-tight text-slate-900">Academia</h1>
+	<p class="mt-2 text-slate-600">
+		Placeholder cards for my education — details and links to follow.
+	</p>
+
+	<div class="mt-10 flex flex-col gap-4">
+		{degrees.map((degree) => (
+			<details class="group rounded-lg border border-slate-200 p-5 open:bg-slate-50">
+				<summary class="flex cursor-pointer list-none items-center justify-between font-medium text-slate-900">
+					{degree.title}
+					<span class="ml-4 shrink-0 text-slate-400 transition-transform group-open:rotate-45">
+						+
+					</span>
+				</summary>
+				<div class="mt-4 space-y-3 text-slate-600">
+					<p>{lorem}</p>
+					<div class="flex flex-wrap gap-4 text-sm">
+						<span class="text-slate-400">Thesis link (coming soon)</span>
+						<span class="text-slate-400">Study certificate (coming soon)</span>
+					</div>
+				</div>
+			</details>
+		))}
+	</div>
+</Layout>
