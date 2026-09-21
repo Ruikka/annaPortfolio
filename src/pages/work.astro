@@ -38,14 +38,14 @@ const roles = [
 <Layout title="Anna Ruikka | Work Experience">
 	<div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
 		<div>
-			<h1 class="text-3xl font-semibold tracking-tight text-slate-900">Work Experience</h1>
-			<p class="mt-2 text-slate-600">A placeholder list of past roles.</p>
+			<h1 class="text-3xl font-semibold tracking-tight text-navy-900">Work Experience</h1>
+			<p class="mt-2 text-olive-700">A placeholder list of past roles.</p>
 		</div>
 		<button
 			type="button"
 			disabled
 			aria-disabled="true"
-			class="mt-4 inline-flex shrink-0 cursor-not-allowed items-center justify-center rounded-md border border-slate-300 bg-slate-100 px-4 py-2 text-sm font-medium text-slate-400 sm:mt-0"
+			class="mt-4 inline-flex shrink-0 cursor-not-allowed items-center justify-center rounded-md border border-cream-200 bg-cream-100 px-4 py-2 text-sm font-medium text-olive-400 sm:mt-0"
 		>
 			Download Resume (coming soon)
 		</button>
@@ -53,13 +53,13 @@ const roles = [
 
 	<ol class="mt-10 flex flex-col gap-10">
 		{roles.map((role) => (
-			<li class="border-l-2 border-slate-200 pl-6">
+			<li class="border-l-2 border-olive-200 pl-6">
 				<div class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-					<h2 class="text-lg font-medium text-slate-900">{role.title}</h2>
-					<span class="text-sm text-slate-500">{role.period}</span>
+					<h2 class="text-lg font-medium text-navy-900">{role.title}</h2>
+					<span class="text-sm text-olive-500">{role.period}</span>
 				</div>
-				<p class="text-sm text-slate-500">{role.company}</p>
-				<ul class="mt-3 list-disc space-y-1 pl-5 text-slate-600">
+				<p class="text-sm text-olive-500">{role.company}</p>
+				<ul class="mt-3 list-disc space-y-1 pl-5 text-olive-700">
 					{role.bullets.map((bullet) => (
 						<li>{bullet}</li>
 					))}

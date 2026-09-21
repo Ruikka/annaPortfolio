@@ -3,29 +3,82 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Anna Ruikka | Home">
-	<section class="flex flex-col items-center gap-8 text-center sm:flex-row sm:items-center sm:gap-10 sm:text-left">
+	<section class="flex flex-col items-center gap-8 text-center sm:flex-row sm:items-start sm:gap-10 sm:text-left">
 		<img
 			src="/profile_picture.JPG"
 			alt="Portrait of Anna Ruikka"
-			class="h-40 w-40 shrink-0 rounded-full object-cover ring-1 ring-slate-200 sm:h-48 sm:w-48"
+			class="h-40 w-40 shrink-0 rounded-full object-cover ring-1 ring-cream-200 sm:h-48 sm:w-48"
 		/>
 		<div>
-			<p class="text-sm font-medium uppercase tracking-wide text-slate-500">Hello world!</p>
-			<h1 class="mt-2 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+			<h1 class="text-3xl font-semibold tracking-tight text-olive-900 sm:text-4xl">
 				Hi, I'm Anna.
 			</h1>
-			<p class="mt-4 max-w-xl text-slate-600">
-				Short bio placeholder — a couple of sentences about who I am, what I do, and what
-				I'm looking for next will go here.
+			<p class="mt-4 max-w-2xl text-olive-700">
+				I am a Computer Science Master's graduate working in service design. I am
+				passionate in all things design; be that product, video games, branding or web.
+				I am currently especially intrigued by AI's relationship with product users, and
+				I wrote my Master's Thesis on a related topic. I am excited to move beyond the
+				traditional UI into AI-powered workflow design, productizing the core flows while
+				allowing users the flexibility they need. My interests outside work include sports
+				in various forms, drawing, reading and cooking! If you'd like to know more, I'm
+				always up for a cup of tea!
 			</p>
 
-			<div class="mt-6 flex flex-col gap-1 text-sm text-slate-600 sm:flex-row sm:gap-6">
-				<a href="mailto:anna.ruikka@example.com" class="hover:text-slate-900">
-					anna.ruikka@example.com
+			<div class="mt-6 flex flex-col items-center gap-2 text-sm text-sunset-600 sm:flex-row sm:items-start sm:gap-6">
+				<div class="relative">
+					<button
+						type="button"
+						id="email-copy"
+						class="cursor-pointer rounded-md border-0 bg-transparent p-0 text-sunset-600 transition-all duration-150 hover:-mx-2 hover:-my-2 hover:bg-sunset-100 hover:px-2 hover:py-2 hover:font-semibold hover:text-sunset-700"
+					>
+						anna.ruikka@outlook.com
+					</button>
+					<span
+						id="email-tooltip"
+						role="status"
+						class="pointer-events-none absolute left-1/2 top-full z-10 mt-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-olive-900 px-3 py-1.5 text-xs font-medium text-cream-50 opacity-0 transition-opacity duration-200"
+					>
+						Email copied to clipboard
+					</span>
+				</div>
+				<a
+					href="https://www.linkedin.com/in/annaruikka/"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="rounded-md transition-all duration-150 hover:-mx-2 hover:-my-2 hover:bg-sunset-100 hover:px-2 hover:py-2 hover:font-semibold hover:text-sunset-700"
+				>
+					LinkedIn
 				</a>
-				<a href="https://www.linkedin.com" class="hover:text-slate-900">LinkedIn</a>
-				<a href="https://github.com" class="hover:text-slate-900">GitHub</a>
+				<a
+					href="https://github.com"
+					class="rounded-md transition-all duration-150 hover:-mx-2 hover:-my-2 hover:bg-sunset-100 hover:px-2 hover:py-2 hover:font-semibold hover:text-sunset-700"
+				>
+					GitHub
+				</a>
 			</div>
 		</div>
 	</section>
+
+	<script>
+		const emailButton = document.getElementById("email-copy");
+		const tooltip = document.getElementById("email-tooltip");
+		let hideTimeout: ReturnType<typeof setTimeout> | undefined;
+
+		emailButton?.addEventListener("click", async () => {
+			try {
+				await navigator.clipboard.writeText("anna.ruikka@outlook.com");
+			} catch {
+				return;
+			}
+
+			tooltip?.classList.remove("opacity-0");
+			tooltip?.classList.add("opacity-100");
+
+			clearTimeout(hideTimeout);
+			hideTimeout = setTimeout(() => {
+				tooltip?.classList.remove("opacity-100");
+				tooltip?.classList.add("opacity-0");
+			}, 2000);
+		});
+	</script>
 </Layout>
